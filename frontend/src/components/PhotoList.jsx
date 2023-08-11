@@ -1,4 +1,5 @@
 import React from "react";
+import PhotoListItem from "./PhotoListItem";
 
 import "../styles/PhotoList.scss";
 
@@ -13,6 +14,7 @@ const sampleDataForPhotoList = [
       full: `${process.env.PUBLIC_URL}/Image-1-Full.jpeg`,
       regular: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
     },
+    category: "people",
     user: {
       id: "1",
       username: "exampleuser",
@@ -26,6 +28,7 @@ const sampleDataForPhotoList = [
       city: "Toronto",
       country: "Canada",
     },
+    category: "travel",
     urls: {
       full: `${process.env.PUBLIC_URL}/Image-2-Full.jpeg`,
       regular: `${process.env.PUBLIC_URL}/Image-2-Regular.jpeg`,
@@ -43,6 +46,7 @@ const sampleDataForPhotoList = [
       city: "Ottawa",
       country: "Canada",
     },
+    category: "animals",
     urls: {
       full: `${process.env.PUBLIC_URL}/Image-3-Full.jpeg`,
       regular: `${process.env.PUBLIC_URL}/Image-3-Regular.jpeg`,
@@ -56,12 +60,34 @@ const sampleDataForPhotoList = [
   },
 ];
 
-const PhotoList = () => {
-  return (
-    <ul className="photo-list">
-      {/* Insert React */}
-    </ul>
-  );
+const makeListArray = function (props) {
+  const listArray = props.map((item, index) => {
+    const { id, location, urls, user } = item; // Destructuring
+
+    return (
+      <PhotoListItem
+        key={index}
+        id={id}
+        location={location}
+        urls={urls}
+        user={user}
+      />
+    );
+  });
+
+  return <React.Fragment>{listArray}</React.Fragment>; // Wrap in React.Fragment
+};
+
+const PhotoList = (props) => {
+  const { photos } = props;
+
+  for (const prop in props) {
+    console.log("here in the for loop " + prop);
+  }
+
+  //console.log("PhotoList props    " + photos);
+
+  return <ul className="photo-list">{makeListArray(photos)}</ul>;
 };
 
 export default PhotoList;
