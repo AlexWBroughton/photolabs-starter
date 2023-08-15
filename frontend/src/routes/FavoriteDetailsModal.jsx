@@ -6,15 +6,13 @@ import PhotoList from "components/PhotoList";
 import ModalPhoto from "components/ModalPhoto";
 
 const PhotoDetailsModal = (props) => {
-  const {photos} = props;
+  const { photos } = props;
+  const photoArray = [];
 
-
-  const photo = photos.find(photo=>(photo.id === props.photoId));
-
-  const { id, location, urls, user, category } = photo;
-
-
-  const favorite = props.isFavorite(id);
+  for (const fav of props.favorites) {
+    const photo = photos.find(photo=>(photo.id === fav));
+    photoArray.push(photo);
+  }
 
   return (
     <div className="photo-details-modal">
@@ -24,25 +22,11 @@ const PhotoDetailsModal = (props) => {
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <div>
-        <div className = 'photo-details-modal__top-bar'>
-          <ModalPhoto
-            key={id}
-            id={id}
-            location={location}
-            urls={urls}
-            user={user}
-            toggleFavorite={() => props.toggleFavorite(id)}
-            favorite={favorite}
-            modal={true}
-          />
-        </div>
-      </div>
-      <hr className = "modalBar"></hr>
-      <span className = 'photo-details-modal__top-bar' >Similar Photos</span >
+      <hr className="modalBar"></hr>
+      <span className="photo-details-modal__top-bar">Favorite Photos</span>
       <div className="photo-details-modal--images">
         <PhotoList
-          photos={Object.values(photo.similar_photos)}
+          photos={photoArray}
           isFavorite={props.isFavorite}
           toggleFavorite={props.toggleFavorite}
         />

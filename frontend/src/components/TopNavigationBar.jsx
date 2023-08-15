@@ -6,13 +6,14 @@ import "../styles/NavBadge.scss";
 
 const TopNavigation = (props) => {
   const { topics } = props;
+  console.log('topnav' + props.favClicked);
 
 
   const badgeRender = function () {
     if (props.favorites.length === 0) {
-      return <FavBadge id="NavBadge"/>;
+      return <FavBadge id="NavBadge" favClicked = {props.favClicked} favBool = {props.favBool} favorites = {props.favorites}/>;
     }
-    return <FavBadge id="NavBadge" isFavPhotoExist = "true"/>;
+    return <FavBadge id="NavBadge" isFavPhotoExist = "true" favBool = {props.favBool} favClicked = {props.favClicked} favorites ={props.favorites}/>;
   };
 
   return (

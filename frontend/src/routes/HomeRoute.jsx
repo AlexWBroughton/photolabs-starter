@@ -8,7 +8,7 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <div><TopNavigation topics={props.topics} favorites = {props.favorites} fetchPhotosByTopic = {props.fetchPhotosByTopic}/> </div>
+      <div><TopNavigation topics={props.topics} favorites = {props.favorites} fetchPhotosByTopic = {props.fetchPhotosByTopic} favBool = {props.favBool}favClicked = {props.favClicked}/> </div>
       <div>
         <PhotoList
           photos={props.photos}
