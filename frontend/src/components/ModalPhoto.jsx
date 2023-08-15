@@ -3,22 +3,19 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = (props) => {
-  /* Insert React */
-
-  const { id, location, urls, user, category} = props;
- 
+const ModalPhoto = function (props) {
+  const { id, location, urls, user, category } = props;
 
   return (
-    <div className="photo-list__item">
-      <div>
+    <div >
+      <div onClick={props.photoClicked} className =  "photo-details-modal__image">
         <PhotoFavButton
           selected={props.favorite}
           onClick={props.toggleFavorite}
         />
-        <img id={id} src={urls.regular} className="photo-list__image"onClick={props.photoClicked} />
       </div>
-      <div className="photo-list__user-details">
+      <img id={id} src={urls.full} className="photo-details-modal__image" />
+      <div className="photo-details-modal__photographer-details">
         <img src={user.profile} className="photo-list__user-profile" />
         <div className="photo-list__user-info">
           <span> {user.name} </span>
@@ -33,4 +30,4 @@ const PhotoListItem = (props) => {
   );
 };
 
-export default PhotoListItem;
+export default ModalPhoto;

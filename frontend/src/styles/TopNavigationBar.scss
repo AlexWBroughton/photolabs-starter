@@ -18,3 +18,10 @@
   text-underline-position: auto;
   margin-left: 24px;
 }
+
+.top-nav-bar__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

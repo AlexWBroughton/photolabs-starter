@@ -8,7 +8,6 @@ const FavIcon = ({ displayAlert, selected}) => {
       viewBox="0 0 24 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-
     >
       <path
         fill={selected ? "#C80000" : "#EEEEEE"}
