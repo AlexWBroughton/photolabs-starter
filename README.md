@@ -25,4 +25,8 @@ npm start
 
 ## Screenshots
 
+!["main page with favorite notifications display and Nature topic selected"](https://github.com/AlexWBroughton/photolabs-starter/blob/main/docs/photo-topics1.png)
 
+!["main page with photo modal popup"](https://github.com/AlexWBroughton/photolabs-starter/blob/main/docs/photo-topics2.png)
+
+!["main page with no favorite notification display and no topic selected"](https://github.com/AlexWBroughton/photolabs-starter/blob/main/docs/photo-topics3.png)
